@@ -6,6 +6,8 @@ import random
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
+import matplotlib.animation as animation
+import csv
 
 
 # Functions:
@@ -34,41 +36,15 @@ def get_csv(amount_of_iterations):
     for i in range(1, amount_of_iterations):
         results.append(calc_pi(i))
 
-    np.savetxt('data100k.csv', results, delimiter=',')
+    np.savetxt('data10k.csv', results, delimiter=',')
 
 
-def visualize():
+def visualize_static():
     my_data = pd.read_csv('data.csv')
     plt.plot(my_data)
     pi = plt.axhline(y=3.14159)
     pi.set_color('red')
     plt.show()
 
-
-# get_csv(100000)
-visualize()
-
-'''
-
-SecureRandom random = new SecureRandom();
-
-        double counter = 0;
-        double totalPoints = 10000000;
-        double ratio = 0;
-        double x = 0;
-        double y = 0;
-        double pi = 0;
-
-        for (int i = 0; i <= totalPoints; i++) {
-            x = random.nextDouble();
-            y = random.nextDouble();
-            if((Math.pow(x, 2) + Math.pow(y, 2)) <= 1){
-                counter++;
-            }
-        }
-
-        ratio = counter / totalPoints;
-        pi = ratio * 4;
-        System.out.println(pi);
-
-    '''
+get_csv(10000)
+#visualize_static()
