@@ -12,7 +12,7 @@ fig, ax = plt.subplots()
 xdata, ydata = [], []
 ln, = plt.plot([], [], '-')
 
-with open('data1k.csv', newline='') as f:
+with open('data100.csv', newline='') as f:
     reader = csv.reader(f)
     my_data = list(reader)
 
@@ -23,10 +23,13 @@ def convert(frame):
 
 
 def init():
-    ax.set_xlim(0, 1000)
+    ax.set_xlim(0, 100)
     ax.set_ylim(2, 4.5)
     pi = plt.axhline(y=3.14159)
     pi.set_color('red')
+    ax.lines[-1].set_label('π')
+    ax.legend()
+    plt.title('Monte Carlo Algorithm 100 runs')
     return ln,
 
 
@@ -37,8 +40,8 @@ def update(frame):
     return ln,
 
 
-ani = FuncAnimation(fig, update, frames=990,
+ani = FuncAnimation(fig, update, frames=99,
                     init_func=init, blit=True)
 plt.show()
 
-ani.save('vis.mp4', writer=writer)
+ani.save('vis100.mp4', writer=writer)
