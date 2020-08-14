@@ -1,2 +1,2 @@
 # MCA-visualisation
-Python visualisation of the Monte-Carlo Algorithm
+Python visualisation of the Monte-Carlo Algorithm.
